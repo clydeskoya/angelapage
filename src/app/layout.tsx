@@ -14,8 +14,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Jonny A Oficial",
-  description: "Jonny A Official"
+  title: "Dra. Ângela Ribeiro - Psiquiatra",
+  description: "Dra. Ângela Ribeiro - Psiquiatra"
   
 };
 

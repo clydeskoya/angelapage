@@ -1,13 +1,12 @@
 :root {
-  --color-navy: rgb(52, 31, 38);
-  --color-navy-opaque: rgba(52, 31, 38, 0.7);
-  --color-orange-600: #800033;
-  --color-orange-900: rgb(242,165,146);
-  --color-red: rgb(153,40,8);
-  --color-gray-300: #d1d5db;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
-}
+  --color-navy: rgb(3, 69, 80);
+  --color-navy-opaque: rgba(3, 69, 80, 0.7);
+  --color-blue-600: #0066cc;
+  --color-blue-900: rgb(11, 155, 233);
+  --color-white: rgb(255, 255, 255);
+  --color-navy-300: #405c6b;
+  --color-navy-800: #023141;
+  --color-blue-900: #2cb4e1;}
 
 body {
   font-family: 'Poppins', sans-serif;

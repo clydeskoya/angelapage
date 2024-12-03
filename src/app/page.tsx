@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import styles from './page.module.css'
-import { Mail, Music, Calendar, Guitar, ChevronRight, ChevronLeft, FileText, PhoneCall } from 'lucide-react'
+import {ChevronRight,PhoneCall, ClipboardPlus, Armchair, Users } from 'lucide-react'
 import Image from 'next/image'
 
 export default function LandingPage() {
@@ -16,9 +16,9 @@ export default function LandingPage() {
       services: 'Serviços',
       contact: 'Contactos',
       heroTitle: 'Mais de 30 anos de experiência',
-      heroText: 'Reconhecemos a necessidade de responder aos pedidos dos nossos pacientes o mais rapidamente possível. Prometemos por isso prestar um serviço eficiente, lidando de forma rápida e rigorosa com as necessidades dos nossos clientes. Tratando de doenças agudas e/ou crónicas, prestamos também cuidados preventivos e educação em saúde para todas as idades e ambos os sexos. A nossa base de conhecimentos continua a expandir-se com os novos avanços na medicina e a nossa promessa é continuar este desenvolvimento para que possamos prestar um diagnóstico eficiente. Continuaremos a trabalhar com os especialistas líderes no sector da psiquiatria de forma a garantir que dispomos do conhecimento e das competências para tratar pacientes com a maior precisão possível. Continuaremos a desafiar-nos com o objetivo último de prestar continuamente serviço de topo aos nossos pacientes.',
+      heroText: 'Como psiquiatra, a minha missão é ajudá-lo(a) a enfrentar os seus problemas. Com experiência no sector público e privado há mais de 30 anos que trato condições como neurose, ansiedade, depressão, vários transtornos de personalidade, entre outras. Com um olhar sempre atento às suas necessidades e características. O meu compromisso é ajudá-lo a a compreender e controlar as suas emoções, fortalecer sua saúde mental e encontrar equilíbrio. Juntos podemos construir um caminho para uma vida mais tranquila e em plenitude. Conte comigo nessa jornada.',
       ctaButton: '218 480 046',
-      watchVideos: 'Serviços',
+      features: 'Serviços',
       repertoire: 'Psiquiatria',
       repertoireText: '',
       flexibleHours: 'Psicoterapia',
@@ -47,7 +47,6 @@ export default function LandingPage() {
     <div className={styles.container}>
       <header className={styles.header}>
         <div className={styles.headerContent}>
-          {/* <h1 className={styles.header}>João Atalho</h1> */}
           <Image
             src={require("./img/logo.png")}
             alt="Logo"
@@ -59,8 +58,8 @@ export default function LandingPage() {
             />
           <nav>
             <ul className={styles.navList}>
-              <li><a href="#home" className={styles.navLink}>{t.home}</a></li>
-              <li><a href="#video" className={styles.navLink}>{t.services}</a></li>
+              <li><a href="#about" className={styles.navLink}>{t.home}</a></li>
+              <li><a href="#features" className={styles.navLink}>{t.services}</a></li>
               <li><a href="#contact" className={styles.navLink}>{t.contact}</a></li>
               <li><a href="#location" className={styles.navLink}>{t.location}</a></li>
             </ul>
@@ -70,12 +69,24 @@ export default function LandingPage() {
       </header>
 
       <main>
-        <section id="home" className={styles.heroSection}>
-          <div className={styles.heroContent} style={{ height: '800px' }}>
+      <section id="home" className={styles.heroSection}>
+          <div className={styles.heroContent}>
+
+            <h2 className={styles.heroTitle}>{t.heroTitle}</h2>
+            {/* <p className={styles.heroText}>{t.heroText}</p> */}
+            <a href="tel:218480046" className={styles.ctaButton}>
+              <PhoneCall className={styles.buttonIcon} />
+              {t.ctaButton}
+              <ChevronRight className={styles.buttonIcon} />
+            </a>
+          </div>
+        </section>
+        <section id="about" className={styles.heroSection}>
+          <div className={styles.heroContent}>
 
             <h2 className={styles.heroTitle}>{t.heroTitle}</h2>
             <p className={styles.heroText}>{t.heroText}</p>
-            <a href="mailto:angela-ribeiro@sapo.pt?subject=Agendar%20consultao&body=Olá,%20estou%20interessado%20em%20marcar%20uma%20consulta%20para%20dia%20dd/mm/aaaa%20às%20XX%20horas.%20Tens%20disponibilidade?%0ACumprimentos," className={styles.ctaButton}>
+            <a href="tel:218480046" className={styles.ctaButton}>
               <PhoneCall className={styles.buttonIcon} />
               {t.ctaButton}
               <ChevronRight className={styles.buttonIcon} />
@@ -83,29 +94,28 @@ export default function LandingPage() {
           </div>
         </section>
 
-        <section id="video" className={styles.videoSection}>
-          <h2 className={styles.sectionTitle}>{t.watchVideos}</h2>
-        </section>
-
-        <section className={styles.featuresSection}>
+        <section id="home" className={styles.heroSection}></section>
+        <section id="features" className={styles.videoSection}>
+          <h2 className={styles.sectionTitle}>{t.features}</h2>
           <div className={styles.featureGrid}>
             <div className={styles.featureBox}>
-              <Music className={styles.featureIcon} />
-              <h3 className={styles.featureTitle}>{t.repertoire}</h3>
-              <p className={styles.featureText}>{t.repertoireText}</p>
+              <ClipboardPlus className={styles.featureIcon} />
+              <h3 className={styles.featureTitle}>{t.repertoire}</h3>              <p className={styles.featureText}>{t.repertoireText}</p>
             </div>
             <div className={styles.featureBox}>
-              <Calendar className={styles.featureIcon} />
+              <Armchair className={styles.featureIcon} />
               <h3 className={styles.featureTitle}>{t.flexibleHours}</h3>
               <p className={styles.featureText}>{t.flexibleHoursText}</p>
             </div>
             <div className={styles.featureBox}>
-              <Guitar className={styles.featureIcon} />
+              <Users className={styles.featureIcon} />
               <h3 className={styles.featureTitle}>{t.ownEquipment}</h3>
               <p className={styles.featureText}>{t.ownEquipmentText}</p>
             </div>
           </div>
         </section>
+
+
 
         <section id="contact" className={styles.contactSection}>
           <h2 className={styles.sectionTitle}>{t.getInTouch}</h2>
@@ -167,9 +177,8 @@ export default function LandingPage() {
           <p>{t.address}</p>
           <div className={styles.mapContainer}>
               <iframe
-                src="https://www.google.com/maps/place/Av.+de+Roma+3,+1000-191+Lisboa,+Portugal/@38.7418272,-9.1379329,79m/data=!3m1!1e3!4m6!3m5!1s0xd1933a44ce293c3:0x6e381eb0d4a2f9cd!8m2!3d38.7418947!4d-9.1381768!16s%2Fg%2F11c2f1vs_k?hl=en-GB&entry=ttu&g_ep=EgoyMDI0MTEyNC4xIKXMDSoASAFQAw%3D%3D"
-                width="600"
-                height="450"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3158.123456789012!2d-9.1381768!3d38.7418947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933a44ce293c3%3A0x6e381eb0d4a2f9cd!2sAv.%20de%20Roma%203%2C%201000-191%20Lisboa%2C%20Portugal!5e0!3m2!1sen!2spt!4v1631234567890!5m2!1sen!2spt"
+                width="600"                height="450"
                 style={{ border: 0 }}
                 allowFullScreen={false}
                 loading="lazy"

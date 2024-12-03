@@ -50,10 +50,10 @@
   background-size: cover; 
   background-position: 30% center; /* Adjust the percentage to move the image left */
   background-repeat: no-repeat; 
-  
+  min-height: fit-content;
   display: flex;
   justify-content: flex-end;
-}
+  padding: 2rem 0;}
 
 @media only screen and (max-width: 600px) {
   .heroSection {
@@ -90,7 +90,7 @@
 .heroTitle {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: white;
+  color: #000080;
   font-weight: bold;
 }
 
@@ -125,13 +125,13 @@
 
 .videoSection {
   padding: 2rem 0;
-  background-color: var(--color-gray-900);
+  background-color: white;
 }
 
 .sectionTitle {
   text-align: center;
   font-size: 2rem;
-  color: white;
+  color:   var(--color-blue-900);
   margin-bottom: 2rem;
 }
 

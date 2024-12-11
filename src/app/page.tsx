@@ -18,7 +18,7 @@ export default function LandingPage() {
       contact: 'Contactos',
       heroTitle: 'Sobre Mim',
       p1: 'Como psiquiatra, a minha missão é ajudar o paciente a compreender e controlar as suas emoções, fortalecer a sua saúde mental e encontrar equilíbrio.',
-      p2:' Tanto no sector público como privado, há mais de 30 anos que trato condições como neurose, ansiedade, depressão, vários transtornos de personalidade, entre outras.',
+      p2:' Tanto no sector público como privado, há mais de 30 anos que trato patologias como neuroses, ansiedade, depressão, transtornos de personalidade, etc.',
       p3:'Com um olhar sempre atento às necessidades e características específicas de cada paciente, juntos vamos traçar o caminho para uma vida mais tranquila e em plenitude. Este é o meu compromisso, conte comigo nessa jornada.',
       ctaButton: '218 480 046',
       features: 'Serviços',
@@ -31,7 +31,7 @@ export default function LandingPage() {
       getInTouch: 'Entre em contacto',
       name: 'Nome',
       message: 'Mensagem',
-      sendMessage: 'Enviar Mensagem',
+      sendMessage: 'Enviar mensagem para angela-ribeiro@sapo.pt',
       subject: 'Assunto',
       cv: 'CV',
       openPdf: 'Abrir PDF',
@@ -68,7 +68,7 @@ export default function LandingPage() {
           </nav>
           <div className={styles.scheduleContainer}>
             <Clock className={styles.clockIcon} size={16} />
-            <span>   9:00 - 19:00</span>
+            <span>      14h30 - 19h30</span>
           </div>
         </div>
       </header>
@@ -82,7 +82,7 @@ export default function LandingPage() {
                 style={{ filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25))' }}
               />
             <div className={styles.heroContent}>
-              <h2 className={styles.heroTitle}>A seu lado há mais de 30 anos</h2>
+              <h2 className={styles.heroTitle}>Cuide da mente, transforme a sua vida!</h2>
               <div style={{ display: 'flex', gap: '2rem' }}>
                 <a href="tel:218480046" className={styles.ctaButton} style={{ width: '252px', justifyContent: 'center' }}>
                   <PhoneCall className={styles.buttonIcon} />
@@ -96,7 +96,7 @@ export default function LandingPage() {
                 </a>
                 <a href="#contact" className={styles.ctaButton} style={{ width: '220px', justifyContent: 'center' }}>
                   <Mail className={styles.buttonIcon} />
-                  E-mail
+                  Email
                   <ChevronRight className={styles.buttonIcon} />
                 </a>              
               </div>
@@ -122,23 +122,23 @@ export default function LandingPage() {
     {
       icon: <ClipboardPlus className={styles.featureIcon} />,
       title: t.repertoire,
-      text: "Detailed text about psychiatry services...",
+      text: "Recolha cuidadosa do sintoma ou doença visando o seu alívio e eventual cura",
       subject: "Consulta de Psiquiatria",
-      message: "Gostaria de marcar uma consulta de Psiquiatria."
+      message: "Gostaria de marcar uma consulta de Psiquiatria.(DEIXE O SEU CONTACTO TELEFÓNICO SFF)"
     },
     {
       icon: <Armchair className={styles.featureIcon} />,
       title: t.flexibleHours,
-      text: "Information about psychotherapy services...",
+      text: "Visa tomar conhecimento psicodinâmico com o objectivo de obter estabilidade emocional. Difere da consulta de psiquiatria pelo acompanhamento periódico",
       subject: "Consulta de Psicoterapia",
-      message: "Gostaria de marcar uma consulta de Psicoterapia."
+      message: "Gostaria de marcar uma consulta de Psicoterapia. (DEIXE O SEU CONTACTO TELEFÓNICO SFF)"
     },
     {
       icon: <Users className={styles.featureIcon} />,
       title: t.ownEquipment,
-      text: "Description of group analysis services...",
+      text: "Tratamento em grupo heterogéneo visando o conhecimento inter-pessoal através do olhar e reconhecimento de outros membros do grupo, com a interpretação analítica do grupanalista. ",
       subject: "Consulta de Análise de Grupo",
-      message: "Gostaria de marcar uma consulta de Análise de Grupo."
+      message: "Olá, tenho interesse em fazer grupanálise. (DEIXE O SEU CONTACTO TELEFÓNICO SFF)"
     }
   ].map((feature, index) => (
     <div 

@@ -105,7 +105,7 @@
 
 .heroContent {
     max-width: 80%;  
-    text-align: right;
+    text-align: left;
     flex-direction: column;
     display: flex;
     justify-content: center;
@@ -280,11 +280,6 @@
   right: 0;
 }
 
-@media (max-width: 768px) {
-  .videoGallery {
-    
-  }
-
   .navButton {
     width: 30px;
     height: 30px;
@@ -297,7 +292,7 @@
   .navButton:last-of-type {
     right: 10px;
   }
-}
+
 
 .sharedBackgroundSection {
   position: relative;

@@ -12,9 +12,12 @@
 
 /* Header */
 .header {
-  background-color: var(--color-gray-900);
   padding: 0.5rem 0;
-  color: white;
+  background: linear-gradient(to right, rgb(55,97,146),rgb(25, 152, 225), rgb(55,97,146));
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 
 .headerContent {
@@ -38,83 +41,169 @@
   color: white;
   text-decoration: none;
   transition: color 0.3s ease;
+  font-size: 1.3rem;
+  
 }
 
 .navLink:hover {
-  color:rgb(232,164,150);
+  color:rgb(234, 241, 95);
 }
 
 /* Hero Section */
 .heroSection {
-  background-color: white; 
-  background-size: cover; 
-  background-position: 30% center; /* Adjust the percentage to move the image left */
-  background-repeat: no-repeat; 
+  background: linear-gradient(to right, rgb(55,97,146),  rgb(25, 152, 225), rgb(55,97,146));
+  margin-top: 80px;
   min-height: fit-content;
   display: flex;
   justify-content: flex-end;
-  padding: 2rem 0;}
+  padding: 0rem 0;
+  height: 100%;
+}
 
 @media only screen and (max-width: 600px) {
   .heroSection {
     background-position: 24% center; /* Adjust the value for smaller screens */
   }
 }
+.heroSection2 {
+  background: white;
+
+  min-height: fit-content;
+  display: flex;
+  justify-content: flex-end;
+  padding: 2rem 0;}
+
+@media only screen and (max-width: 600px) {
+  .heroSection2 {
+    background-position: 24% center; /* Adjust the value for smaller screens */
+  }
+}
+
 
 .heroImage {
-  width: 100%; /* Full width of the container */
-  max-width: 200px; /* Set a max width for larger screens */
-  height: auto; /* Maintain aspect ratio */
-  padding-top: 10px; /* Add some padding to the top */
+  width: 100%;
+  max-width: 200px; 
+  height: auto; 
+  padding-top: 10px;
   padding-bottom: 10px;
+}
+.heroContainer {
+  display: flex;
+  justify-content: space-evenly;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0px 0px;
+  gap: 4rem;
+}
+
+.heroSideImage {
+  height: 88%;
+  width: auto;
+  align-self: flex-end;
+  margin-right: 5rem;
 }
 
 .heroContent {
-    /* max-width: 50%; */
+    max-width: 80%;  
     text-align: right;
-    /* padding: 0 4rem; */
-    padding-right: 12rem;
-    padding-left: 12rem;
-    align-items: flex-end;
-    display: flex;
     flex-direction: column;
-    align-self: center;
+    display: flex;
     justify-content: center;
-    @media only screen and (max-width: 600px) {
-      max-width:80%;
-      padding: 0 2rem;
-    }
-    
+    gap: 3rem; 
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+@media (max-width: 768px) {
+  .heroContainer {
+    flex-direction: column;
+    text-align: center;
+    gap: 32px;
+  }
+  
+
+}
+.heroContent2 {
+  /* max-width: 50%; */
+  text-align: left;
+  /* padding: 0 4rem; */
+  padding-right: 15rem;
+  padding-left: 15rem;
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+  @media only screen and (max-width: 600px) {
+    max-width:80%;
+    padding: 0 2rem;
+  }
+  
 }
 
 .heroTitle {
   font-size: 3rem;
   margin-bottom: 1rem;
-  color: #000080;
+  color:white;
+  font-weight: bold;
+  margin-bottom: '2rem'; 
+}
+.heroTitle2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color:rgb(25, 152, 225);
   font-weight: bold;
 }
 
 .heroText {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   /* color: var(--color-gray-300); */
   margin-bottom: 2rem;
-  color: navy;
+  color: black;
+  text-align: justify;
 }
 
 .ctaButton {
   display: inline-flex;
   align-items: center;
   padding: 0.75rem 1.5rem;
-  background-color: var(--color-navy);
+  background-color: rgb(242,180,99);
   color: white;
   text-decoration: none;
   border-radius: 9999px;
   font-weight: 600;
   transition: background-color 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .ctaButton:hover {
-  background-color: var(--color-navy-opaque);
+  background-color: rgb(242, 190, 120);
+}
+
+
+.locationSection {
+  padding: 4rem 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: relative;
+  background-color: #333;
+  @media only screen and (max-width: 600px) {
+    padding: 2rem 0;
+  }
+}
+
+.locationSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .buttonIcon {
@@ -125,13 +214,12 @@
 
 .videoSection {
   padding: 2rem 0;
-  background-color: white;
 }
 
 .sectionTitle {
   text-align: center;
-  font-size: 2rem;
-  color:   var(--color-blue-900);
+  font-size: 2.5rem;
+  color:white;
   margin-bottom: 2rem;
 }
 
@@ -211,7 +299,31 @@
   }
 }
 
+.sharedBackgroundSection {
+  position: relative;
+  background-image: url('../app/img/fundo.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  width: 100%;
+  position: relative;
+}
 
+.sharedBackgroundSection::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(25, 152, 225, 0.65);/* Adjust opacity (0.6) and color as needed */
+  z-index: 1;
+}
+.overlayContent {
+  position: relative;
+  z-index: 2;
+  
+}
 
 
 /* Features Section */
@@ -230,11 +342,13 @@
 }
 
 .featureBox {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.8);
   padding: 2rem;
   border-radius: 0.5rem;
   text-align: center;
-  transition: transform 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .featureBox:hover {
@@ -244,7 +358,12 @@
 .featureIcon {
   width: 3rem;
   height: 3rem;
-  color: rgb(232,164,150 );
+  color: rgb(25, 152, 225);
+  margin-bottom: 1rem;
+}
+.featureIcon2 {
+  width: 1.9rem;
+  color: rgb(232, 209, 5);
   margin-bottom: 1rem;
 }
 
@@ -258,20 +377,60 @@
   color: var(--color-gray-300);
 }
 
+.featureContent {
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.featureContent.expanded {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 1rem;
+}
+
 /* Contact Section */
 .contactSection {
-  background: linear-gradient(to top, var(--color-orange-900),var(--color-gray-900));
+  background: transparent;
   padding: 5rem 0;
 }
 
 .formContainer {
   max-width: 600px;
   margin: 0 auto;
-  background-color: var(--color-gray-900);
+  background-color: rgba(255, 255, 255, 0.98);
   padding: 2rem;
   border-radius: 0.5rem;
 }
 
+.bookButton {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  background-color: rgb(242,180,99);
+  color: white;
+  text-decoration: none;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+  cursor: pointer;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.bookButton:hover {
+  background-color: rgb(242, 190, 120);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.bookButton:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 .contactForm {
   display: flex;
   flex-direction: column;
@@ -284,9 +443,9 @@
 }
 
 .formLabel {
-  font-size: 0.875rem;
+  font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color: var(--color-gray-300);
+  color: black;
 }
 
 .formInput,
@@ -296,9 +455,10 @@
   background-color: var(--color-gray-800);
   border: 1px solid var(--color-gray-700);
   border-radius: 0.25rem;
-  color: white;
+  color: black;
   transition: border-color 0.3s ease;
   resize: none;
+  font-size: 1.2rem;
 }
 
 .formInput:focus,
@@ -309,7 +469,7 @@
 
 .submitButton {
   padding: 0.75rem 1.5rem;
-  background-color: var(--color-gray-800);
+  background-color: rgb(25, 152, 225);
   color: white;
   border: none;
   border-radius: 0.25rem;
@@ -319,7 +479,7 @@
 }
 
 .submitButton:hover {
-  background-color: rgb(232,164,150);
+  background-color: rgb(13, 108, 162);
 }
 
 /* Footer */

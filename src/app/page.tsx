@@ -2,21 +2,24 @@
 
 import { useState } from 'react'
 import styles from './page.module.css'
-import {ChevronRight,PhoneCall, ClipboardPlus, Armchair, Users } from 'lucide-react'
+import {ChevronRight,PhoneCall, ClipboardPlus, Armchair, Users, Mail, Clock, ClipboardList } from 'lucide-react'
 import Image from 'next/image'
 
 export default function LandingPage() {
   const [formData, setFormData] = useState({ name: '', subject: '', message: '' })
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0)
+  
   const [language, setLanguage] = useState('pt')
+  const [expandedFeature, setExpandedFeature] = useState<number | null>(null);
 
   const translations = {
     pt: {
       home: 'Sobre',
       services: 'Serviços',
       contact: 'Contactos',
-      heroTitle: 'Mais de 30 anos de experiência',
-      heroText: 'Como psiquiatra, a minha missão é ajudá-lo(a) a enfrentar os seus problemas. Com experiência no sector público e privado há mais de 30 anos que trato condições como neurose, ansiedade, depressão, vários transtornos de personalidade, entre outras. Com um olhar sempre atento às suas necessidades e características. O meu compromisso é ajudá-lo a a compreender e controlar as suas emoções, fortalecer sua saúde mental e encontrar equilíbrio. Juntos podemos construir um caminho para uma vida mais tranquila e em plenitude. Conte comigo nessa jornada.',
+      heroTitle: 'Sobre Mim',
+      p1: 'Como psiquiatra, a minha missão é ajudar o paciente a compreender e controlar as suas emoções, fortalecer a sua saúde mental e encontrar equilíbrio.',
+      p2:' Tanto no sector público como privado, há mais de 30 anos que trato condições como neurose, ansiedade, depressão, vários transtornos de personalidade, entre outras.',
+      p3:'Com um olhar sempre atento às necessidades e características específicas de cada paciente, juntos vamos traçar o caminho para uma vida mais tranquila e em plenitude. Este é o meu compromisso, conte comigo nessa jornada.',
       ctaButton: '218 480 046',
       features: 'Serviços',
       repertoire: 'Psiquiatria',
@@ -33,7 +36,7 @@ export default function LandingPage() {
       cv: 'CV',
       openPdf: 'Abrir PDF',
       location: 'Localização',
-      address: 'Avenida de Roma 3,2°-E 1000-260 Lisboa, Portugal'
+      address: 'Avenida de Roma 3, 2°E 1000-260 Lisboa, Portugal'
     }
   }
 
@@ -45,7 +48,7 @@ export default function LandingPage() {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
+      <header className={styles.header} style={{ zIndex: 1000 }}>
         <div className={styles.headerContent}>
           <Image
             src={require("./img/logo.png")}
@@ -53,7 +56,6 @@ export default function LandingPage() {
             className={styles.heroImage}
             layout="responsive"
             width={150}
-            
             priority
             />
           <nav>
@@ -64,60 +66,112 @@ export default function LandingPage() {
               <li><a href="#location" className={styles.navLink}>{t.location}</a></li>
             </ul>
           </nav>
-
+          <div className={styles.scheduleContainer}>
+            <Clock className={styles.clockIcon} size={16} />
+            <span>   9:00 - 19:00</span>
+          </div>
         </div>
       </header>
-
       <main>
-      <section id="home" className={styles.heroSection}>
-          <div className={styles.heroContent}>
+      <section id="home" className={styles.heroSection} style={{ height: '70vh', minHeight: '70vh', paddingTop: '80px' }}>
+          <div className={styles.heroContainer}>
+              <Image
+                src={require("./img/hero.png")}
+                alt="Hero Image"
+                className={styles.heroSideImage}
+                style={{ filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25))' }}
+              />
+            <div className={styles.heroContent}>
+              <h2 className={styles.heroTitle}>A seu lado há mais de 30 anos</h2>
+              <div style={{ display: 'flex', gap: '2rem' }}>
+                <a href="tel:218480046" className={styles.ctaButton} style={{ width: '252px', justifyContent: 'center' }}>
+                  <PhoneCall className={styles.buttonIcon} />
+                  {t.ctaButton}
+                  <ChevronRight className={styles.buttonIcon} />
+                </a>
+                <a href="tel:962556989" className={styles.ctaButton} style={{ width: '252px', justifyContent: 'center' }}>
+                  <PhoneCall className={styles.buttonIcon} />
+                  962 556 989
+                  <ChevronRight className={styles.buttonIcon} />
+                </a>
+                <a href="#contact" className={styles.ctaButton} style={{ width: '220px', justifyContent: 'center' }}>
+                  <Mail className={styles.buttonIcon} />
+                  E-mail
+                  <ChevronRight className={styles.buttonIcon} />
+                </a>              
+              </div>
+            </div>          
+          </div>       
+      </section>
 
-            <h2 className={styles.heroTitle}>{t.heroTitle}</h2>
-            {/* <p className={styles.heroText}>{t.heroText}</p> */}
-            <a href="tel:218480046" className={styles.ctaButton}>
-              <PhoneCall className={styles.buttonIcon} />
-              {t.ctaButton}
-              <ChevronRight className={styles.buttonIcon} />
-            </a>
+        <section id="about" className={styles.heroSection2} style={{ paddingTop: '80px' }}>
+          <div className={styles.heroContent2}>
+            <h2 className={styles.heroTitle2}>{t.heroTitle}</h2>
+            <p className={styles.heroText}>{t.p1}</p> 
+            <p className={styles.heroText}>{t.p2}</p> 
+            <p className={styles.heroText}>{t.p3}</p>
           </div>
         </section>
-        <section id="about" className={styles.heroSection}>
-          <div className={styles.heroContent}>
 
-            <h2 className={styles.heroTitle}>{t.heroTitle}</h2>
-            <p className={styles.heroText}>{t.heroText}</p>
-            <a href="tel:218480046" className={styles.ctaButton}>
-              <PhoneCall className={styles.buttonIcon} />
-              {t.ctaButton}
-              <ChevronRight className={styles.buttonIcon} />
-            </a>
-          </div>
-        </section>
-
-        <section id="home" className={styles.heroSection}></section>
-        <section id="features" className={styles.videoSection}>
+        <div className={styles.sharedBackgroundSection}>
+          
+        <section id="features" className={`${styles.videoSection} ${styles.overlayContent}`} style={{ paddingTop: '80px' }}>
           <h2 className={styles.sectionTitle}>{t.features}</h2>
           <div className={styles.featureGrid}>
-            <div className={styles.featureBox}>
-              <ClipboardPlus className={styles.featureIcon} />
-              <h3 className={styles.featureTitle}>{t.repertoire}</h3>              <p className={styles.featureText}>{t.repertoireText}</p>
-            </div>
-            <div className={styles.featureBox}>
-              <Armchair className={styles.featureIcon} />
-              <h3 className={styles.featureTitle}>{t.flexibleHours}</h3>
-              <p className={styles.featureText}>{t.flexibleHoursText}</p>
-            </div>
-            <div className={styles.featureBox}>
-              <Users className={styles.featureIcon} />
-              <h3 className={styles.featureTitle}>{t.ownEquipment}</h3>
-              <p className={styles.featureText}>{t.ownEquipmentText}</p>
-            </div>
+          {[
+    {
+      icon: <ClipboardPlus className={styles.featureIcon} />,
+      title: t.repertoire,
+      text: "Detailed text about psychiatry services...",
+      subject: "Consulta de Psiquiatria",
+      message: "Gostaria de marcar uma consulta de Psiquiatria."
+    },
+    {
+      icon: <Armchair className={styles.featureIcon} />,
+      title: t.flexibleHours,
+      text: "Information about psychotherapy services...",
+      subject: "Consulta de Psicoterapia",
+      message: "Gostaria de marcar uma consulta de Psicoterapia."
+    },
+    {
+      icon: <Users className={styles.featureIcon} />,
+      title: t.ownEquipment,
+      text: "Description of group analysis services...",
+      subject: "Consulta de Análise de Grupo",
+      message: "Gostaria de marcar uma consulta de Análise de Grupo."
+    }
+  ].map((feature, index) => (
+    <div 
+      key={index}
+      className={styles.featureBox}
+      onClick={() => setExpandedFeature(expandedFeature === index ? null : index)}
+    >
+      {feature.icon}
+      <h3 className={styles.featureTitle}>{feature.title}</h3>
+      <div className={`${styles.featureContent} ${expandedFeature === index ? styles.expanded : ''}`}>
+        <p className={styles.featureText} style={{ color: 'white' }}>{feature.text}</p>
+        <button
+          className={styles.bookButton}
+          onClick={(e) => {
+            e.stopPropagation()
+            setFormData(prev => ({
+              ...prev,
+              subject: feature.subject,
+              message: feature.message
+            }))
+            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
+          }}
+        >
+          Marcar
+        </button>
+      </div>
+    </div>
+  ))}
           </div>
         </section>
 
 
-
-        <section id="contact" className={styles.contactSection}>
+        <section id="contact" className={`${styles.contactSection} ${styles.overlayContent}`} style={{ paddingTop: '80px' }}>
           <h2 className={styles.sectionTitle}>{t.getInTouch}</h2>
           <div className={styles.formContainer}>
             <div className={styles.contactForm}>
@@ -131,18 +185,20 @@ export default function LandingPage() {
                   onChange={handleInputChange}
                   required
                   className={styles.formInput}
+                  style={{ border: '1px solid black'}}
                 />
               </div>
               <div className={styles.formGroup}>
                 <label htmlFor="subject" className={styles.formLabel}>{t.subject}</label>
                 <input
-                  type="subject"
+                  type="text"
                   id="subject"
                   name="subject"
                   value={formData.subject}
                   onChange={handleInputChange}
                   required
                   className={styles.formInput}
+                  style={{ border: '1px solid black' }}
                 />
               </div>
               <div className={styles.formGroup}>
@@ -154,7 +210,8 @@ export default function LandingPage() {
                   onChange={handleInputChange}
                   required
                   rows={4}
-                  className={styles.formTextarea}
+                  className={styles.formInput}
+                  style={{ border: '1px solid black' }}
                 ></textarea>
               </div>
               <button
@@ -163,7 +220,7 @@ export default function LandingPage() {
                 onClick={() => {
                   const subject = formData.subject;
                   const body = encodeURIComponent(`\n${formData.message}\n\nCumprimentos,\n${formData.name}`);
-                  window.location.href = `mailto:joao.atalho@protonmail.com?subject=${subject}&body=${body}`;
+                  window.location.href = `mailto:angela-ribeiro@sapo.pt?subject=${subject}&body=${body}`;
                 }}
               >
                 {t.sendMessage}
@@ -171,21 +228,24 @@ export default function LandingPage() {
             </div>
           </div>
         </section>
-
-        <section id="location" className={styles.locationSection}>
-          <h2 className={styles.sectionTitle}>{t.location}</h2>
-          <p>{t.address}</p>
-          <div className={styles.mapContainer}>
+        </div>
+        <section id="location" className={styles.locationSection} style={{ paddingTop: '80px' }}>
+          
+          <div style={{ position: 'relative', zIndex: 2}}>
+            <h2 className={styles.sectionTitle}>{t.location}</h2>
+            <p style={{ color: 'white', fontSize: '1.3rem' }}>{t.address}</p>
+            <div className={styles.mapContainer}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3158.123456789012!2d-9.1381768!3d38.7418947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933a44ce293c3%3A0x6e381eb0d4a2f9cd!2sAv.%20de%20Roma%203%2C%201000-191%20Lisboa%2C%20Portugal!5e0!3m2!1sen!2spt!4v1631234567890!5m2!1sen!2spt"
-                width="600"                height="450"
+                width="600"
+                height="450"
                 style={{ border: 0 }}
                 allowFullScreen={false}
                 loading="lazy"
               ></iframe>
             </div>
-        </section>
-      </main>
+          </div>
+        </section>      </main>
 
       <footer className={styles.footer}>
         <div className={styles.footerContent}>

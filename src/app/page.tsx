@@ -17,7 +17,7 @@ export default function LandingPage() {
       services: 'Serviços',
       contact: 'Contactos',
       heroTitle: 'Sobre Mim',
-      p1: 'Como psiquiatra, a minha missão é ajudar o paciente a compreender e controlar as suas emoções, fortalecer a sua saúde mental e encontrar equilíbrio.',
+      p1: 'Como psiquiatra, a minha missão é ajudar o paciente a compreender e controlar as emoções, fortalecer a sua saúde mental e encontrar equilíbrio.',
       p2:' Tanto no sector público como privado, há mais de 30 anos que trato patologias como neuroses, ansiedade, depressão, transtornos de personalidade, etc.',
       p3:'Com um olhar sempre atento às necessidades e características específicas de cada paciente, juntos vamos traçar o caminho para uma vida mais tranquila e em plenitude. Este é o meu compromisso, conte comigo nessa jornada.',
       ctaButton: '218 480 046',
@@ -31,7 +31,7 @@ export default function LandingPage() {
       getInTouch: 'Entre em contacto',
       name: 'Nome',
       message: 'Mensagem',
-      sendMessage: 'Enviar mensagem para angela-ribeiro@sapo.pt',
+      sendMessage: 'Enviar mail',
       subject: 'Assunto',
       cv: 'CV',
       openPdf: 'Abrir PDF',
@@ -67,8 +67,8 @@ export default function LandingPage() {
             </ul>
           </nav>
           <div className={styles.scheduleContainer}>
-            <Clock className={styles.clockIcon} size={16} />
-            <span>      14h30 - 19h30</span>
+            <Clock className={styles.clockIcon} size={20.8} color='white' />
+            <span style={{ fontSize: '1.3rem', color: 'white' }}>14h30 - 19h30</span>
           </div>
         </div>
       </header>
@@ -76,14 +76,14 @@ export default function LandingPage() {
       <section id="home" className={styles.heroSection} style={{ height: '70vh', minHeight: '70vh', paddingTop: '80px' }}>
           <div className={styles.heroContainer}>
               <Image
-                src={require("./img/hero.png")}
+                src={require("./img/hero-fs8.png")}
                 alt="Hero Image"
                 className={styles.heroSideImage}
                 style={{ filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25))' }}
               />
             <div className={styles.heroContent}>
               <h2 className={styles.heroTitle}>Cuide da mente, transforme a sua vida!</h2>
-              <div style={{ display: 'flex', gap: '2rem' }}>
+              <div className={styles.ctaSection}>
                 <a href="tel:218480046" className={styles.ctaButton} style={{ width: '252px', justifyContent: 'center' }}>
                   <PhoneCall className={styles.buttonIcon} />
                   {t.ctaButton}
@@ -94,7 +94,7 @@ export default function LandingPage() {
                   962 556 989
                   <ChevronRight className={styles.buttonIcon} />
                 </a>
-                <a href="#contact" className={styles.ctaButton} style={{ width: '220px', justifyContent: 'center' }}>
+                <a href="#contact" className={styles.ctaButton} style={{ width: '252px', justifyContent: 'center' }}>
                   <Mail className={styles.buttonIcon} />
                   Email
                   <ChevronRight className={styles.buttonIcon} />
@@ -122,34 +122,38 @@ export default function LandingPage() {
     {
       icon: <ClipboardPlus className={styles.featureIcon} />,
       title: t.repertoire,
-      text: "Recolha cuidadosa do sintoma ou doença visando o seu alívio e eventual cura",
+      text: "Recolha cuidadosa do sintoma ou doença visando o seu alívio e cura",
       subject: "Consulta de Psiquiatria",
       message: "Gostaria de marcar uma consulta de Psiquiatria.(DEIXE O SEU CONTACTO TELEFÓNICO SFF)"
     },
     {
       icon: <Armchair className={styles.featureIcon} />,
       title: t.flexibleHours,
-      text: "Visa tomar conhecimento psicodinâmico com o objectivo de obter estabilidade emocional. Difere da consulta de psiquiatria pelo acompanhamento periódico",
+      text: "Tomar conhecimento psicodinâmico para obter estabilidade emocional. Difere da consulta de psiquiatria pelo forma de acompanhamento",
       subject: "Consulta de Psicoterapia",
-      message: "Gostaria de marcar uma consulta de Psicoterapia. (DEIXE O SEU CONTACTO TELEFÓNICO SFF)"
+      message: "Gostaria de marcar uma sessão de Psicoterapia. (DEIXE O SEU CONTACTO TELEFÓNICO SFF)"
     },
     {
       icon: <Users className={styles.featureIcon} />,
       title: t.ownEquipment,
-      text: "Tratamento em grupo heterogéneo visando o conhecimento inter-pessoal através do olhar e reconhecimento de outros membros do grupo, com a interpretação analítica do grupanalista. ",
-      subject: "Consulta de Análise de Grupo",
+      text: "Tratamento em grupo heterogéneo onde o conhecimento inter-pessoal através do olhar e reconhecimento de outros membros é chave, sempre com a interpretação do grupanalista.",
+      subject: "Consulta de triagem para Grupanálise",
       message: "Olá, tenho interesse em fazer grupanálise. (DEIXE O SEU CONTACTO TELEFÓNICO SFF)"
     }
   ].map((feature, index) => (
     <div 
-      key={index}
-      className={styles.featureBox}
-      onClick={() => setExpandedFeature(expandedFeature === index ? null : index)}
-    >
+  key={index}
+  className={styles.featureBox}
+  onClick={() => {
+    setExpandedFeature(expandedFeature === index ? null : index)
+  }}
+>
       {feature.icon}
       <h3 className={styles.featureTitle}>{feature.title}</h3>
       <div className={`${styles.featureContent} ${expandedFeature === index ? styles.expanded : ''}`}>
         <p className={styles.featureText} style={{ color: 'white' }}>{feature.text}</p>
+        <div style={{ marginTop: '20px' }}></div>
+        
         <button
           className={styles.bookButton}
           onClick={(e) => {
@@ -169,7 +173,6 @@ export default function LandingPage() {
   ))}
           </div>
         </section>
-
 
         <section id="contact" className={`${styles.contactSection} ${styles.overlayContent}`} style={{ paddingTop: '80px' }}>
           <h2 className={styles.sectionTitle}>{t.getInTouch}</h2>

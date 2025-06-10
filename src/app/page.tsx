@@ -4,6 +4,8 @@ import { useState } from 'react'
 import styles from './page.module.css'
 import {ChevronRight,PhoneCall, ClipboardPlus, Armchair, Users, Mail, Clock, ClipboardList } from 'lucide-react'
 import Image from 'next/image'
+import logoImage from './img/logo.png'
+import heroImage from './img/hero-fs8.png'
 
 export default function LandingPage() {
   const [formData, setFormData] = useState({ name: '', subject: '', message: '' })
@@ -48,17 +50,16 @@ export default function LandingPage() {
 
   return (
     <div className={styles.container}>
-      <header className={styles.header} style={{ zIndex: 1000 }}>
+      <header className={styles.header} style={{ zIndex: 1000 }} role="banner">
         <div className={styles.headerContent}>
           <Image
-            src={require("./img/logo.png")}
-            alt="Logo"
+            src={logoImage}
+            alt="Logo Dra. Ângela Ribeiro - Psiquiatra em Lisboa"
             className={styles.heroImage}
-            layout="responsive"
             width={150}
             priority
             />
-          <nav>
+          <nav role="navigation" aria-label="Menu principal">
             <ul className={styles.navList}>
               <li><a href="#about" className={styles.navLink}>{t.home}</a></li>
               <li><a href="#features" className={styles.navLink}>{t.services}</a></li>
@@ -66,47 +67,45 @@ export default function LandingPage() {
               <li><a href="#location" className={styles.navLink}>{t.location}</a></li>
             </ul>
           </nav>
-          <div className={styles.scheduleContainer}>
-            <Clock className={styles.clockIcon} size={20.8} color='white' />
-            <span style={{ fontSize: '1.3rem', color: 'white' }}>14h30 - 19h30</span>
-          </div>
+
         </div>
       </header>
-      <main>
-      <section id="home" className={styles.heroSection} style={{ height: '70vh', minHeight: '70vh', paddingTop: '80px' }}>
+      <main role="main">
+      <section id="home" className={styles.heroSection} style={{ height: '70vh', minHeight: '70vh', paddingTop: '80px' }} aria-labelledby="hero-title">
           <div className={styles.heroContainer}>
               <Image
-                src={require("./img/hero-fs8.png")}
-                alt="Hero Image"
+                src={heroImage}
+                alt="Dra. Ângela Ribeiro - Psiquiatra especialista em saúde mental"
                 className={styles.heroSideImage}
                 style={{ filter: 'drop-shadow(0px 4px 8px rgba(0, 0, 0, 0.25))' }}
+                priority
               />
             <div className={styles.heroContent}>
-              <h2 className={styles.heroTitle}>Cuide da mente, transforme a sua vida!</h2>
+              <h1 id="hero-title" className={styles.heroTitle}>Cuide da mente, transforme a sua vida!</h1>
               <div className={styles.ctaSection}>
-                <a href="tel:218480046" className={styles.ctaButton} style={{ width: '252px', justifyContent: 'center' }}>
-                  <PhoneCall className={styles.buttonIcon} />
+                <a href="tel:218480046" className={styles.ctaButton} style={{ width: '252px', justifyContent: 'center' }} aria-label="Ligar para 218 480 046">
+                  <PhoneCall className={styles.buttonIcon} aria-hidden="true" />
                   {t.ctaButton}
-                  <ChevronRight className={styles.buttonIcon} />
+                  <ChevronRight className={styles.buttonIcon} aria-hidden="true" />
                 </a>
-                <a href="tel:962556989" className={styles.ctaButton} style={{ width: '252px', justifyContent: 'center' }}>
-                  <PhoneCall className={styles.buttonIcon} />
+                <a href="tel:962556989" className={styles.ctaButton} style={{ width: '252px', justifyContent: 'center' }} aria-label="Ligar para 962 556 989">
+                  <PhoneCall className={styles.buttonIcon} aria-hidden="true" />
                   962 556 989
-                  <ChevronRight className={styles.buttonIcon} />
+                  <ChevronRight className={styles.buttonIcon} aria-hidden="true" />
                 </a>
-                <a href="#contact" className={styles.ctaButton} style={{ width: '252px', justifyContent: 'center' }}>
-                  <Mail className={styles.buttonIcon} />
+                <a href="#contact" className={styles.ctaButton} style={{ width: '252px', justifyContent: 'center' }} aria-label="Enviar email">
+                  <Mail className={styles.buttonIcon} aria-hidden="true" />
                   Email
-                  <ChevronRight className={styles.buttonIcon} />
+                  <ChevronRight className={styles.buttonIcon} aria-hidden="true" />
                 </a>              
               </div>
             </div>          
           </div>       
       </section>
 
-        <section id="about" className={styles.heroSection2} style={{ paddingTop: '80px' }}>
+        <section id="about" className={styles.heroSection2} style={{ paddingTop: '80px' }} aria-labelledby="about-title">
           <div className={styles.heroContent2}>
-            <h2 className={styles.heroTitle2}>{t.heroTitle}</h2>
+            <h2 id="about-title" className={styles.heroTitle2}>{t.heroTitle}</h2>
             <p className={styles.heroText}>{t.p1}</p> 
             <p className={styles.heroText}>{t.p2}</p> 
             <p className={styles.heroText}>{t.p3}</p>
@@ -115,38 +114,39 @@ export default function LandingPage() {
 
         <div className={styles.sharedBackgroundSection}>
           
-        <section id="features" className={`${styles.videoSection} ${styles.overlayContent}`} style={{ paddingTop: '80px' }}>
-          <h2 className={styles.sectionTitle}>{t.features}</h2>
-          <div className={styles.featureGrid}>
+        <section id="features" className={`${styles.videoSection} ${styles.overlayContent}`} style={{ paddingTop: '80px' }} aria-labelledby="services-title">
+          <h2 id="services-title" className={styles.sectionTitle}>{t.features}</h2>
+          <div className={styles.featureGrid} role="list">
           {[
     {
-      icon: <ClipboardPlus className={styles.featureIcon} />,
+      icon: <ClipboardPlus className={styles.featureIcon} aria-hidden="true" />,
       title: t.repertoire,
       text: "Recolha cuidadosa do sintoma ou doença visando o seu alívio e cura",
       subject: "Consulta de Psiquiatria",
       message: "Gostaria de marcar uma consulta de Psiquiatria.(DEIXE O SEU CONTACTO TELEFÓNICO SFF)"
     },
     {
-      icon: <Armchair className={styles.featureIcon} />,
+      icon: <Armchair className={styles.featureIcon} aria-hidden="true" />,
       title: t.flexibleHours,
       text: "Tomar conhecimento psicodinâmico para obter estabilidade emocional. Difere da consulta de psiquiatria pelo forma de acompanhamento",
       subject: "Consulta de Psicoterapia",
       message: "Gostaria de marcar uma sessão de Psicoterapia. (DEIXE O SEU CONTACTO TELEFÓNICO SFF)"
     },
     {
-      icon: <Users className={styles.featureIcon} />,
+      icon: <Users className={styles.featureIcon} aria-hidden="true" />,
       title: t.ownEquipment,
       text: "Tratamento em grupo heterogéneo onde o conhecimento inter-pessoal através do olhar e reconhecimento de outros membros é chave, sempre com a interpretação do grupanalista.",
       subject: "Consulta de triagem para Grupanálise",
       message: "Olá, tenho interesse em fazer grupanálise. (DEIXE O SEU CONTACTO TELEFÓNICO SFF)"
     }
   ].map((feature, index) => (
-    <div 
+    <article 
   key={index}
   className={styles.featureBox}
   onClick={() => {
     setExpandedFeature(expandedFeature === index ? null : index)
   }}
+  role="listitem"
 >
       {feature.icon}
       <h3 className={styles.featureTitle}>{feature.title}</h3>
@@ -165,19 +165,20 @@ export default function LandingPage() {
             }))
             document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })
           }}
+          aria-label={`Marcar consulta de ${feature.title}`}
         >
           Marcar
         </button>
       </div>
-    </div>
+    </article>
   ))}
           </div>
         </section>
 
-        <section id="contact" className={`${styles.contactSection} ${styles.overlayContent}`} style={{ paddingTop: '80px' }}>
-          <h2 className={styles.sectionTitle}>{t.getInTouch}</h2>
+        <section id="contact" className={`${styles.contactSection} ${styles.overlayContent}`} style={{ paddingTop: '80px' }} aria-labelledby="contact-title">
+          <h2 id="contact-title" className={styles.sectionTitle}>{t.getInTouch}</h2>
           <div className={styles.formContainer}>
-            <div className={styles.contactForm}>
+            <form className={styles.contactForm} role="form" aria-label="Formulário de contacto">
               <div className={styles.formGroup}>
                 <label htmlFor="name" className={styles.formLabel}>{t.name}</label>
                 <input
@@ -189,6 +190,7 @@ export default function LandingPage() {
                   required
                   className={styles.formInput}
                   style={{ border: '1px solid black'}}
+                  aria-required="true"
                 />
               </div>
               <div className={styles.formGroup}>
@@ -202,6 +204,7 @@ export default function LandingPage() {
                   required
                   className={styles.formInput}
                   style={{ border: '1px solid black' }}
+                  aria-required="true"
                 />
               </div>
               <div className={styles.formGroup}>
@@ -215,6 +218,7 @@ export default function LandingPage() {
                   rows={4}
                   className={styles.formInput}
                   style={{ border: '1px solid black' }}
+                  aria-required="true"
                 ></textarea>
               </div>
               <button
@@ -225,18 +229,21 @@ export default function LandingPage() {
                   const body = encodeURIComponent(`\n${formData.message}\n\nCumprimentos,\n${formData.name}`);
                   window.location.href = `mailto:angela-ribeiro@sapo.pt?subject=${subject}&body=${body}`;
                 }}
+                aria-label="Enviar mensagem por email"
               >
                 {t.sendMessage}
               </button>
-            </div>
+            </form>
           </div>
         </section>
         </div>
-        <section id="location" className={styles.locationSection} style={{ paddingTop: '80px' }}>
+        <section id="location" className={styles.locationSection} style={{ paddingTop: '80px' }} aria-labelledby="location-title">
           
           <div style={{ position: 'relative', zIndex: 2}}>
-            <h2 className={styles.sectionTitle}>{t.location}</h2>
-            <p style={{ color: 'white', fontSize: '1.3rem' }}>{t.address}</p>
+            <h2 id="location-title" className={styles.sectionTitle}>{t.location}</h2>
+            <address style={{ color: 'white', fontSize: '1.3rem', fontStyle: 'normal' }}>
+              {t.address}
+            </address>
             <div className={styles.mapContainer}>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3158.123456789012!2d-9.1381768!3d38.7418947!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd1933a44ce293c3%3A0x6e381eb0d4a2f9cd!2sAv.%20de%20Roma%203%2C%201000-191%20Lisboa%2C%20Portugal!5e0!3m2!1sen!2spt!4v1631234567890!5m2!1sen!2spt"
@@ -245,14 +252,16 @@ export default function LandingPage() {
                 style={{ border: 0 }}
                 allowFullScreen={false}
                 loading="lazy"
+                title="Localização do consultório da Dra. Ângela Ribeiro em Lisboa"
+                aria-label="Mapa mostrando a localização do consultório na Avenida de Roma 3, Lisboa"
               ></iframe>
             </div>
           </div>
         </section>      </main>
 
-      <footer className={styles.footer}>
+      <footer className={styles.footer} role="contentinfo">
         <div className={styles.footerContent}>
-          <p className={styles.copyright}>© 2024 Dra. Ângela Ribeiro. All rights reserved.</p>
+          <p className={styles.copyright}>© 2024 Dra. Ângela Ribeiro. Todos os direitos reservados.</p>
           <div className={styles.socialLinks}>
             
           </div>

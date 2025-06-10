@@ -73,22 +73,24 @@
   justify-content: flex-end;
   padding: 0rem 0;
   height: 100%;
+  position: relative;
+  overflow: hidden; /* Prevent any overflow issues */
 }
+
 @media screen and (max-width: 1200px) {
   .heroSection {
-  
     background-image: 
-    url('./img/hero-fs8.png'), 
-    linear-gradient(to right, rgba(55,97,146, 0.8), rgba(25, 152, 225, 0.8), rgba(55,97,146, 0.8));
-background-size: 
-    80% auto ,  /* This controls just the image size */
-    100% 100%; /* This keeps the gradient covering the full container */
-background-repeat: no-repeat;
-background-position: 
-    center bottom -22vh, /* This positions just the image */
-    0 0;        /* This keeps the gradient at the default position */
-background-blend-mode: overlay; /* Blend image and gradient */
-position: relative;
+      url('./img/hero-fs8.png'), 
+      linear-gradient(to right, rgba(55,97,146, 0.8), rgba(25, 152, 225, 0.8), rgba(55,97,146, 0.8));
+    background-size: 
+      auto 60vh,  /* Fixed height-based sizing to prevent resizing */
+      100% 100%; /* This keeps the gradient covering the full container */
+    background-repeat: no-repeat;
+    background-position: 
+      center bottom, /* Center the image horizontally and position at bottom */
+      0 0;        /* This keeps the gradient at the default position */
+    background-blend-mode: overlay; /* Blend image and gradient */
+    min-height: 70vh; /* Ensure minimum height for the background image */
   }
 
   .heroSection::before {
@@ -96,9 +98,10 @@ position: relative;
     position: absolute;
     top: 0;
     left: 0;
-    width: 50%;
-    height: auto;
-    z-index: 1;  }
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
 
   .heroSection img {
     display: none;
@@ -110,6 +113,28 @@ position: relative;
   }
 }
 
+/* Additional breakpoint for smaller screens */
+@media screen and (max-width: 768px) {
+  .heroSection {
+    background-size: 
+      auto 50vh,  /* Smaller fixed height on mobile */
+      100% 100%;
+    background-position: 
+      center bottom,
+      0 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heroSection {
+    background-size: 
+      auto 40vh,  /* Even smaller fixed height on very small screens */
+      100% 100%;
+    background-position: 
+      center bottom,
+      0 0;
+  }
+}
 
 .heroSection2 {
   background: white;
@@ -295,12 +320,14 @@ position: relative;
 }
 
 .featureGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   gap: 2rem;
+  padding: 2rem;
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
 }
 
 .featureBox {
@@ -312,8 +339,8 @@ position: relative;
   cursor: pointer;
   overflow: hidden;
   flex: 1;
-  min-width: 400px;
-  max-width: 500px;
+  min-width: 300px;
+  max-width: 400px;
 }
 
 .featureBox:hover {
@@ -326,6 +353,7 @@ position: relative;
   color: rgb(25, 152, 225);
   margin-bottom: 1rem;
 }
+
 .featureIcon2 {
   width: 1.9rem;
   color: rgb(232, 209, 5);
@@ -471,18 +499,6 @@ position: relative;
   gap: 1.5rem;
 }
 
-
-.featureGrid {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 /* Mobile styles for hero sections */
 @media (max-width: 1200px) {
   .heroSideImage {
@@ -522,20 +538,71 @@ position: relative;
   margin-top: 2rem;
 }
 
-
 /* Mobile styles for feature boxes */
-@media (max-width: 1268px) {
+@media (max-width: 1200px) {
   .featureGrid {
     flex-direction: column;
     align-items: center;
-    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem;
   }
   
   .featureBox {
-    width: 90%;
+    width: 100%;
+    max-width: 500px;
+    min-width: unset;
     margin: 0 auto;
   }
 }
+
+@media (max-width: 768px) {
+  .featureGrid {
+    padding: 1rem 0.5rem;
+    gap: 1rem;
+  }
+  
+  .featureBox {
+    width: 100%;
+    max-width: 100%;
+    padding: 1.5rem;
+    margin: 0 auto;
+  }
+  
+  .featureTitle {
+    font-size: 1.3rem;
+  }
+  
+  .featureText {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .featureGrid {
+    padding: 1rem 0.25rem;
+  }
+  
+  .featureBox {
+    padding: 1.25rem;
+    margin: 0 auto;
+  }
+  
+  .featureTitle {
+    font-size: 1.2rem;
+  }
+  
+  .featureText {
+    font-size: 0.9rem;
+  }
+  
+  .featureIcon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* Mobile styles for navigation */
+
 @media (max-width: 820px) {
   .heroTitle {
     font-size: 1.7rem;
@@ -545,11 +612,6 @@ position: relative;
     text-align: center;
   }
 }
-
-
-
-/* Mobile styles for navigation */
-
 
 /* Small mobile devices */
 @media (max-width: 480px) {
@@ -574,7 +636,6 @@ position: relative;
     padding: 0 1rem;
     text-align: center;
   }
-
 
   .scheduleContainer {
     flex-direction: row;
